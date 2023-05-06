@@ -21,10 +21,16 @@ extension SBQuickViewController: QLPreviewControllerDelegate {
     @available(iOS 13.0, *)
     public func previewController(_ controller: QLPreviewController,
                                   editingModeFor previewItem: QLPreviewItem) -> QLPreviewItemEditingMode {
-        .createCopy
+        .updateContents
     }
 
     public func previewControllerDidDismiss(_ controller: QLPreviewController) {
         dismiss(animated: false)
+    }
+
+    public func previewController(_ controller: QLPreviewController, didUpdateContentsOf previewItem: QLPreviewItem) {
+        if self.configuration?.onFileUpdate != nil {
+            self.configuration?.onFileUpdate!()
+        }
     }
 }

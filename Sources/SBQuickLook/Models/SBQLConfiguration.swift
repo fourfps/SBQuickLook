@@ -14,6 +14,7 @@ public struct SBQLConfiguration {
     /// Optional local directory `URL`. Overrides the local directory `URL` used by the download task.
     /// Default: `FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)`
     public var localFileDir: URL?
+    public var onFileUpdate: (() -> ())?
 
     /// Initializes the file item with the given values.
     ///
