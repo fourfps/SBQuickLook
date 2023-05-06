@@ -27,4 +27,10 @@ public struct SBQLConfiguration {
         self.session = session
         self.localFileDir = localFileDir
     }
+    
+    public init(session: URLSession? = nil, localFileDir: URL? = nil, onFileUpdate: @escaping () -> ()) {
+        self.session = session
+        self.localFileDir = localFileDir
+        self.onFileUpdate = onFileUpdate
+    }
 }
